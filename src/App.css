@@ -1,20 +1,40 @@
 #root {
   --sidebar-bg: #333;
   --white: #fff;
+  --black: #000;
+}
+
+body {
+  margin: 0;
 }
 
 header {
   display: flex;
   align-items: center;
   gap: 1rem;
+  padding: .75rem 1.25rem;
+  background-color: var(--sidebar-bg);
 }
 
-header .logo {
+header .logo img {
   height: 46px;
 }
 
-header h1 {
+header .title h1 {
   font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1;
+}
+
+header .title h2 {
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 2.5px;
+  margin: 0;
+  line-height: 1.5;
+  color: #999
 }
 
 

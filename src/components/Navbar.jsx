@@ -1,4 +1,4 @@
-import logo from "../assets/images/logo.jpg";
+import logo from "../assets/images/logo.png";
 
 const Navbar = () => {
   return (
@@ -6,7 +6,10 @@ const Navbar = () => {
       <div className="logo">
         <img src={logo} alt="Application Logo" />
       </div>
-      <h1>App Name</h1>
+      <div className="title">
+        <h1>Loop Troop</h1>
+        <h2>Rent a Property</h2>
+      </div>
     </header>
   );
 };

@@ -1,6 +1,34 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  --sidebar-bg: #333;
+  --white: #fff;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+header .logo {
+  height: 46px;
+}
+
+header h1 {
+  font-size: 24px;
+}
+
+
+#sidebar {
+  width: 200px;
+  height: 100vh;
+  background-color: var(--sidebar-bg);
+  color: var(--white);
+  padding: 20px;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+}
+
+#sidebar ul {
+  list-style: none;
 }

@@ -1,14 +1,18 @@
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Sidebar from './components/Sidebar'
+
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <p>
-        Click on the Vite and React logos to learn more
-      </p>
+      <Navbar />
+      <Sidebar />
+      <Footer />
     </>
-  )
+  );
 }
 
 export default App

@@ -37,6 +37,20 @@ header .title h2 {
   color: #999
 }
 
+.main {
+  display: flex;
+}
+
+.rental-list {
+  flex: 1;
+  padding: 2rem;
+}
+
+.rental-list h1 {
+  border: 2px solid var(--white);
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+}
 
 #sidebar {
   width: 200px;

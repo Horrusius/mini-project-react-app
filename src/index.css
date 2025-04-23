@@ -12,3 +12,34 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.rental-list {
+  flex-direction: column;
+  flex: 1;
+  padding: 2rem;
+}
+
+.rental-list h1 {
+  border: 2px solid var(--white);
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+}
+
+.main {
+  display: flex;
+}
+
+#sidebar {
+  width: 200px;
+  height: 100vh;
+  background-color: var(--sidebar-bg);
+  color: var(--white);
+  padding: 20px;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+}
+
+#sidebar ul {
+  list-style: none;
+}

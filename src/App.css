@@ -37,32 +37,3 @@ header .title h2 {
   color: #999
 }
 
-.main {
-  display: flex;
-}
-
-.rental-list {
-  flex: 1;
-  padding: 2rem;
-}
-
-.rental-list h1 {
-  border: 2px solid var(--white);
-  padding: .5rem 1rem;
-  border-radius: 1rem;
-}
-
-#sidebar {
-  width: 200px;
-  height: 100vh;
-  background-color: var(--sidebar-bg);
-  color: var(--white);
-  padding: 20px;
-  box-sizing: border-box;
-  left: 0;
-  top: 0;
-}
-
-#sidebar ul {
-  list-style: none;
-}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import RentalData from "../data/data.json";
-import RentalCard from "./ListItem";
+import RentalCard from "./RentalCard";
 
 function RentalList() {
   const [rentals, setRentals] = useState(

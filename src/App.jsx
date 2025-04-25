@@ -1,3 +1,5 @@
+import { useState } from "react";
+import RentalData from "./data/data.json";
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Sidebar from './components/Sidebar'
@@ -13,6 +15,15 @@ import './App.css'
 
 function App() {
 
+  const [rentals, setRentals] = useState(
+    RentalData.results.filter((obj) => obj.has_availability === true)
+  );
+
+  const deleteRentalItem = (locationId) => {
+    const newRentalList = rentals.filter((location) => location.id !== locationId);
+    setRentals(newRentalList);
+  };
+
   return (
     <>
       <Navbar />
@@ -20,11 +31,17 @@ function App() {
         <Sidebar />
 
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/about" element={<About />}/>
+          <Route
+            path="/"
+            element={<Dashboard rentalsArr={rentals} onDelete={deleteRentalItem} />}
+          />
+          <Route path="/about" element={<About />} />
 
-          <Route path="/rentals/:rentalId" element={<RentalDetails />}/>
-          <Route path="*" element={<NotFound/>}/>
+          <Route
+            path="/rentals/:rentalId"
+            element={<RentalDetails rentalArr={rentals} />}
+          />
+          <Route path="*" element={<NotFound />} />
         </Routes>
 
       </div>

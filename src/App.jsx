@@ -3,7 +3,6 @@ import RentalData from "./data/data.json";
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Sidebar from './components/Sidebar'
-import RentalList from './components/RentalList'
 import Dashboard from './pages/Dashboard'
 import RentalDetails from './pages/RentalDetails'
 import About from './pages/About'
@@ -19,6 +18,23 @@ function App() {
     RentalData.results.filter((obj) => obj.has_availability === true)
   );
 
+  const createRental = (newRentalDetails) => {
+    const rentalIds = rentals.map((rentalObj) => {
+      return rentalObj.id;
+    });
+    const maxId = Math.max(...rentalIds)
+    const nextId = maxId + 1
+
+    const newRental = {
+      ...newRentalDetails,
+      id: nextId,
+    }
+
+    const newList = [newRental, ...rentals]
+    
+    setRentals(newList);
+  }
+
   const deleteRentalItem = (locationId) => {
     const newRentalList = rentals.filter((location) => location.id !== locationId);
     setRentals(newRentalList);
@@ -33,7 +49,7 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Dashboard rentalsArr={rentals} onDelete={deleteRentalItem} />}
+            element={<Dashboard rentalsArr={rentals} onDelete={deleteRentalItem} createRental={createRental}/>}
           />
           <Route path="/about" element={<About />} />
 

@@ -35,7 +35,7 @@ function CreateRental(props) {
                     />
                 </label>
                 <label>Description
-                    <input
+                    <textarea
                         type="textarea"
                         name="description"
                         placeholder="Enter the description of Rental"
@@ -50,7 +50,7 @@ function CreateRental(props) {
                         type="checkbox"
                         id="available"
                         name="available"
-                        value={availability}
+                        checked={availability}
                         onChange={(e) => { setAvailability(e.target.value) }}
                     />
                 </label>

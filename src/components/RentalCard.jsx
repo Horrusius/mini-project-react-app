@@ -9,6 +9,9 @@ function RentalCard(props) {
       <Link to={`/rentals/${props.rental.id}`}>
         <button>More Details</button>
       </Link>
+      <Link to={`/rentals/${props.rental.id}/edit`}>
+        <button>Edit</button>
+      </Link>
     </article>
   );
 }

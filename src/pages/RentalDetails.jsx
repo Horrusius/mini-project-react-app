@@ -4,7 +4,7 @@ function RentalDetails (props) {
 
     const { rentalId } = useParams();
 
-    const rental = props.rentalArr.find((rentalObj, i, arr) => {
+    const rental = props.rentalArr.find((rentalObj) => {
         return rentalObj.id === parseInt(rentalId);
     });
 

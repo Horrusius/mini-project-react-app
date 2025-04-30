@@ -1,68 +1,134 @@
-import { useState } from "react"
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function CreateRental(props) {
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    const [availability, setAvailability] = useState(false);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [neighbourhood, setNeighbourhood] = useState("");
+  const [price, setPrice] = useState("");
+  const [accommodates, setAccommodates] = useState(1);
+  const [pictureUrl, setPictureUrl] = useState("");
+  const [roomType, setRoomType] = useState("Private room");
+  const [amenities, setAmenities] = useState("");
+  const [availability, setAvailability] = useState(false);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-        const newRental = {
-            name: name,
-            description: description,
-            has_availability: availability,
-        }
+    const newRental = {
+      name,
+      description,
+      neighbourhood,
+      price,
+      accommodates,
+      picture_url: pictureUrl,
+      room_type: roomType,
+      amenities: amenities.split(",").map((a) => a.trim()),
+      has_availability: availability,
+    };
 
-        props.createRental(newRental);
+    props.createRental(newRental);
+    navigate("/");
+  };
 
-        setName("");
-        setDescription("");
-        setAvailability(false);
+  return (
+    <section className="form-container">
+      <h2>Create a New Rental</h2>
+      <form onSubmit={handleSubmit} className="rental-form">
+        <label>
+          Name
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </label>
 
-        navigate('/');
-    }
+        <label>
+          Description
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            rows="4"
+            required
+          />
+        </label>
 
-    return (
-        <section>
-            <form id="form" onSubmit={handleSubmit}>
-                <label>Name
-                    <input
-                        type="text"
-                        name="title"
-                        placeholder="Enter the title of Rental"
-                        value={name}
-                        onChange={(e) => { setName(e.target.value) }}
-                    />
-                </label>
-                <label>Description
-                    <textarea
-                        type="textarea"
-                        name="description"
-                        placeholder="Enter the description of Rental"
-                        value={description}
-                        onChange={(e) => { setDescription(e.target.value) }}
-                    />
-                </label>
+        <label>
+          Neighbourhood
+          <input
+            type="text"
+            value={neighbourhood}
+            onChange={(e) => setNeighbourhood(e.target.value)}
+          />
+        </label>
 
-                
-                <label> It's available
-                    <input
-                        type="checkbox"
-                        id="available"
-                        name="available"
-                        checked={availability}
-                        onChange={(e) => { setAvailability(e.target.value) }}
-                    />
-                </label>
+        <label>
+          Price (USD)
+          <input
+            type="number"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </label>
 
-                <button>Create Rental</button>
-            </form>
-        </section>
-    )
+        <label>
+          Accommodates
+          <input
+            type="number"
+            min="1"
+            value={accommodates}
+            onChange={(e) => setAccommodates(Number(e.target.value))}
+          />
+        </label>
+
+        <label>
+          Picture URL
+          <input
+            type="url"
+            value={pictureUrl}
+            onChange={(e) => setPictureUrl(e.target.value)}
+          />
+        </label>
+
+        <label>
+          Room Type
+          <select
+            value={roomType}
+            onChange={(e) => setRoomType(e.target.value)}
+          >
+            <option value="Private room">Private room</option>
+            <option value="Entire home/apt">Entire home/apt</option>
+            <option value="Shared room">Shared room</option>
+            <option value="Hotel room">Hotel room</option>
+          </select>
+        </label>
+
+        <label>
+          Amenities (comma-separated)
+          <input
+            type="text"
+            value={amenities}
+            onChange={(e) => setAmenities(e.target.value)}
+          />
+        </label>
+
+        <label className="checkbox-label">
+          <input
+            type="checkbox"
+            checked={availability}
+            onChange={(e) => setAvailability(e.target.checked)}
+          />
+          Available
+        </label>
+
+        <button type="submit">Create Rental</button>
+      </form>
+    </section>
+  );
 }
 
 export default CreateRental;

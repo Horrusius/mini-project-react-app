@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Sidebar from './components/Sidebar'
 import Dashboard from './pages/Dashboard'
-import RentalDetails from './pages/RentalDetails'
+import RentalDetails from './components/RentalDetails'
 import EditRental from "./pages/EditRental";
 import CreateRental from "./pages/CreateRental";
 import About from './pages/About'

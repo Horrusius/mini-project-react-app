@@ -1,10 +1,12 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 function CreateRental(props) {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [availability, setAvailability] = useState(false);
 
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,6 +22,8 @@ function CreateRental(props) {
         setName("");
         setDescription("");
         setAvailability(false);
+
+        navigate('/');
     }
 
     return (

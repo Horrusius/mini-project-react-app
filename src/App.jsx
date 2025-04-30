@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar'
 import Dashboard from './pages/Dashboard'
 import RentalDetails from './pages/RentalDetails'
 import EditRental from "./pages/EditRental";
+import CreateRental from "./pages/CreateRental";
 import About from './pages/About'
 import NotFound from './pages/NotFound'
 
@@ -57,9 +58,10 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Dashboard rentalsArr={rentals} onDelete={deleteRentalItem} createRental={createRental} editRental={editRental} />}
+            element={<Dashboard rentalsArr={rentals} onDelete={deleteRentalItem} editRental={editRental} />}
           />
           <Route path="/about" element={<About />} />
+          <Route path="/createRental" element={<CreateRental createRental={createRental}/>} />
 
           <Route
             path="/rentals/:rentalId"

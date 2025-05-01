@@ -35,67 +35,72 @@ function CreateRental(props) {
 
   return (
     <section className="form-container">
-      <h2>Create a New Rental</h2>
-      <form onSubmit={handleSubmit} className="rental-form">
-        <label>
-          Name
+      <h2 className="text-2xl font-bold text-center mb-5">
+        Create a New Rental
+      </h2>
+      <form
+        onSubmit={handleSubmit}
+        className="rental-form bg-blue-50/50 border-blue-300 w-1/2 mx-auto border flex flex-col p-5 rounded-2xl gap-2"
+      >
+        <div>
+          <label>Name</label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
-        </label>
+        </div>
 
-        <label>
-          Description
+        <div>
+          <label>Description</label>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             rows="4"
             required
           />
-        </label>
+        </div>
 
-        <label>
-          Neighbourhood
+        <div>
+          <label>Neighbourhood</label>
           <input
             type="text"
             value={neighbourhood}
             onChange={(e) => setNeighbourhood(e.target.value)}
           />
-        </label>
+        </div>
 
-        <label>
-          Price (USD)
+        <div>
+          <label>Price (USD)</label>
           <input
             type="number"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-        </label>
+        </div>
 
-        <label>
-          Accommodates
+        <div>
+          <label>Accommodates</label>
           <input
             type="number"
             min="1"
             value={accommodates}
             onChange={(e) => setAccommodates(Number(e.target.value))}
           />
-        </label>
+        </div>
 
-        <label>
-          Picture URL
+        <div>
+          <label>Picture URL</label>
           <input
             type="url"
             value={pictureUrl}
             onChange={(e) => setPictureUrl(e.target.value)}
           />
-        </label>
+        </div>
 
-        <label>
-          Room Type
+        <div>
+          <label>Room Type</label>
           <select
             value={roomType}
             onChange={(e) => setRoomType(e.target.value)}
@@ -105,27 +110,27 @@ function CreateRental(props) {
             <option value="Shared room">Shared room</option>
             <option value="Hotel room">Hotel room</option>
           </select>
-        </label>
+        </div>
 
-        <label>
-          Amenities (comma-separated)
+        <div>
+          <label>Amenities (comma-separated)</label>
           <input
             type="text"
             value={amenities}
             onChange={(e) => setAmenities(e.target.value)}
           />
-        </label>
+        </div>
 
-        <label className="checkbox-label">
+        <div className="flex items-center gap-2">
+          <label className="checkbox-label">Available</label>
           <input
             type="checkbox"
             checked={availability}
             onChange={(e) => setAvailability(e.target.checked)}
           />
-          Available
-        </label>
+        </div>
 
-        <button type="submit">Create Rental</button>
+        <button type="submit" className="btn details-btn">Create Rental</button>
       </form>
     </section>
   );

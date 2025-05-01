@@ -1,45 +1,32 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.btn {
+    @apply py-2 px-4 bg-gray-200 rounded-lg text-gray-900 hover:bg-gray-300 cursor-pointer;
 }
 
-.rental-list {
-  flex-direction: column;
-  flex: 1;
-  padding: 2rem;
+.btn.delete-btn {
+    @apply bg-rose-500 hover:bg-rose-600 text-white;
 }
 
-.rental-list h1 {
-  border: 2px solid var(--white);
-  padding: .5rem 1rem;
-  border-radius: 1rem;
+.btn.details-btn {
+    @apply bg-blue-600 hover:bg-blue-700 text-white;
 }
 
-.main {
-  display: flex;
+.btn.edit-btn {
+    @apply bg-yellow-500 hover:bg-yellow-600 text-white;
 }
 
-#sidebar {
-  width: 200px;
-  height: 100vh;
-  background-color: var(--sidebar-bg);
-  color: var(--white);
-  padding: 20px;
-  box-sizing: border-box;
-  left: 0;
-  top: 0;
+label {
+    @apply font-semibold flex items-center gap-2 mb-1;
 }
 
-#sidebar ul {
-  list-style: none;
+input {
+    @apply py-2 px-4 border border-gray-300 rounded-md bg-white w-full;
+}
+
+textarea {
+    @apply py-2 px-4 border border-gray-300 rounded-md bg-white w-full;
+}
+select {
+    @apply py-2 px-4 border border-gray-300 rounded-md bg-white w-full;
 }

@@ -2,13 +2,9 @@ import RentalCard from "./RentalCard";
 
 function RentalList({ rentalsArr, onDelete }) {
   return (
-    <section>
+    <section className="flex flex-col gap-5">
       {rentalsArr.map((rentalObj) => (
-        <RentalCard
-          key={rentalObj.id}
-          rental={rentalObj}
-          onDelete={onDelete}
-        />
+        <RentalCard key={rentalObj.id} rental={rentalObj} onDelete={onDelete} />
       ))}
     </section>
   );

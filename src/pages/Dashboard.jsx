@@ -1,11 +1,7 @@
 import RentalList from "../components/RentalList";
 
-function Dashboard({ rentalsArr, onDelete}) {
-  return (
-    <div>
-      <RentalList rentalsArr={rentalsArr} onDelete={onDelete}/>
-    </div>
-  );
+function Dashboard({ rentalsArr, onDelete }) {
+  return <RentalList rentalsArr={rentalsArr} onDelete={onDelete} />;
 }
 
 export default Dashboard;

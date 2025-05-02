@@ -5,17 +5,33 @@ function EditRental(props) {
   const { rentalId } = useParams();
   const navigate = useNavigate();
 
-  const rental = props.rentalArr.find((rentalObj) => rentalObj.id === parseInt(rentalId));
+  const rental = props.rentalArr.find(
+    (rentalObj) => rentalObj.id === parseInt(rentalId)
+  );
 
   const [name, setName] = useState(rental ? rental.name : "");
-  const [description, setDescription] = useState(rental ? rental.description : "");
-  const [neighbourhood, setNeighbourhood] = useState(rental ? rental.neighbourhood : "");
+  const [description, setDescription] = useState(
+    rental ? rental.description : ""
+  );
+  const [neighbourhood, setNeighbourhood] = useState(
+    rental ? rental.neighbourhood : ""
+  );
   const [price, setPrice] = useState(rental ? rental.price : "");
-  const [accommodates, setAccommodates] = useState(rental ? rental.accommodates : 1);
-  const [pictureUrl, setPictureUrl] = useState(rental ? rental.picture_url : "");
-  const [roomType, setRoomType] = useState(rental ? rental.room_type : "Private room");
-  const [amenities, setAmenities] = useState(rental ? rental.amenities.join(", ") : "");
-  const [availability, setAvailability] = useState(rental ? rental.has_availability : false);
+  const [accommodates, setAccommodates] = useState(
+    rental ? rental.accommodates : 1
+  );
+  const [pictureUrl, setPictureUrl] = useState(
+    rental ? rental.picture_url : ""
+  );
+  const [roomType, setRoomType] = useState(
+    rental ? rental.room_type : "Private room"
+  );
+  const [amenities, setAmenities] = useState(
+    rental ? rental.amenities.join(", ") : ""
+  );
+  const [availability, setAvailability] = useState(
+    rental ? rental.has_availability : false
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,67 +55,66 @@ function EditRental(props) {
 
   return (
     <section className="form-container">
-      <h2>Edit Rental</h2>
-      <form onSubmit={handleSubmit} className="rental-form">
-        <label>
-          Name
+      <h2 className="text-2xl font-bold text-center mb-5">Edit Rental</h2>
+      <form
+        onSubmit={handleSubmit}
+        className="rental-form bg-blue-50/50 border-blue-300 w-1/2 mx-auto border flex flex-col p-5 rounded-2xl gap-2"
+      >
+        <div>
+          <label>Name</label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
-        </label>
-
-        <label>
-          Description
+        </div>
+        <div>
+          <label>Description</label>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             rows="4"
             required
           />
-        </label>
+        </div>
 
-        <label>
-          Neighbourhood
+        <div>
+          <label>Neighbourhood</label>
           <input
             type="text"
             value={neighbourhood}
             onChange={(e) => setNeighbourhood(e.target.value)}
           />
-        </label>
+        </div>
 
-        <label>
-          Price (USD)
+        <div>
+          <label>Price (USD)</label>
           <input
             type="text"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-        </label>
-
-        <label>
-          Accommodates
+        </div>
+        <div>
+          <label>Accommodates</label>
           <input
             type="number"
             value={accommodates}
             min="1"
             onChange={(e) => setAccommodates(Number(e.target.value))}
           />
-        </label>
-
-        <label>
-          Picture URL
+        </div>
+        <div>
+          <label>Picture URL</label>
           <input
             type="url"
             value={pictureUrl}
             onChange={(e) => setPictureUrl(e.target.value)}
           />
-        </label>
-
-        <label>
-          Room Type
+        </div>
+        <div>
+          <label>Room Type</label>
           <select
             value={roomType}
             onChange={(e) => setRoomType(e.target.value)}
@@ -109,27 +124,24 @@ function EditRental(props) {
             <option value="Shared room">Shared room</option>
             <option value="Hotel room">Hotel room</option>
           </select>
-        </label>
-
-        <label>
-          Amenities (comma-separated)
+        </div>
+        <div>
+          <label>Amenities (comma-separated)</label>
           <input
             type="text"
             value={amenities}
             onChange={(e) => setAmenities(e.target.value)}
           />
-        </label>
-
-        <label className="checkbox-label">
+        </div>
+        <div className="flex items-center gap-2">
+          <label className="checkbox-label">Available</label>
           <input
             type="checkbox"
             checked={availability}
             onChange={(e) => setAvailability(e.target.checked)}
           />
-          Available
-        </label>
-
-        <button type="submit">Update Rental</button>
+        </div>
+        <button type="submit" className="btn details-btn">Update Rental</button>
       </form>
     </section>
   );
